@@ -1,6 +1,9 @@
 #ifndef CHIP8_H
 #define CHIP8_H
+#include <stdbool.h>
 #include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
 typedef struct {
   uint8_t memory[4096];
   uint8_t V[16];
@@ -19,5 +22,6 @@ typedef struct {
   uint16_t opcode;
 
 } Chip8;
+bool load_rom(Chip8 *chip, char *rom);
 
 #endif
