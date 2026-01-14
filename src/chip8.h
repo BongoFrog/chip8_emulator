@@ -18,10 +18,10 @@ typedef struct {
 
   uint8_t keypad[16];
   uint8_t display[64 * 32];
-
-  uint16_t opcode;
-
-} Chip8;
-bool load_rom(Chip8 *chip, char *rom);
-
+  bool drawFlag;
+} chip8_t;
+void chip8_init(chip8_t *chip);
+bool load_rom(chip8_t *chip, char *rom);
+uint16_t fetch(chip8_t *chip);
+void decode_and_execute(chip8_t *chip, uint16_t opcode);
 #endif
