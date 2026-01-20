@@ -39,6 +39,7 @@ void chip8_init(chip8_t *chip) {
   memset(chip->stack, 0, sizeof(chip->stack));
   memset(chip->display, 0, 64 * 32);
   chip->drawFlag = false;
+  chip->waiting_for_input = false;
 }
 
 bool load_rom(chip8_t *chip, char *rom) {
@@ -193,7 +194,12 @@ void decode_and_execute(chip8_t *chip, uint16_t opcode) {
     }
     chip->drawFlag = 1;
     break;
+  case 0xE000:
+    if (kk == 0x9e) {
 
+    } else if (kk == 0xa1) {
+    }
+    break;
   default:
     printf("Can't find the opcode or not implemented yet\n");
     break;

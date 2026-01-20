@@ -17,6 +17,8 @@ typedef struct {
   uint8_t sound_timer;
 
   uint8_t keypad[16];
+  bool waiting_for_input;
+  uint8_t wait_reg;
   uint8_t display[64 * 32];
   bool drawFlag;
 } chip8_t;
